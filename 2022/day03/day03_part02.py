@@ -3,20 +3,21 @@ def get_groups(list_items = ""):
     Función para obtener una lista de listas de grupos de 3
     '''
     groups = []
-    for x in len(list_items)/3:
+    for x in range(int(len(list_items)/3)):
         group = []
         group.append(list_items[x*3])
         group.append(list_items[(x*3) + 1])
         group.append(list_items[(x*3) + 2])
+        groups.append(group)
     return groups
 
-def get_same_item(compartments = ("", "")):
+def get_same_item(compartments = ("", "", "")):
     '''
     Función para obtener el item repetido en los compartimientos
     '''
     same_item = ""
     for item in compartments[0]:
-        if item in compartments[1]:
+        if item in compartments[1] and item in compartments[2]:
             same_item = item
             return same_item
     return same_item
